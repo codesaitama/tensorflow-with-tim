@@ -8,7 +8,7 @@ data = keras.datasets.imdb
 np_load_old = np.load
 np.load = lambda *a,**k: np_load_old(*a, allow_pickle=True, **k)
 
-(train_data, train_labels), (test_data, test_labels) = data.load_data(num_words=10000)
+(train_data, train_labels), (test_data, test_labels) = data.load_data(num_words=88000)
 
 np.load = np_load_old
 
@@ -38,7 +38,7 @@ def decode_review(text):
 
 # model down here
 model = keras.Sequential()
-model.add(keras.layers.Embedding(10000, 16))
+model.add(keras.layers.Embedding(88000, 16))
 model.add(keras.layers.GlobalAveragePooling1D())
 model.add(keras.layers.Dense(16, activation="relu"))
 model.add(keras.layers.Dense(1, activation="sigmoid"))
@@ -59,10 +59,14 @@ results = model.evaluate(test_data, test_labels)
 
 print(results)
 
+#save the model
+model.save("model.h5")
+
+'''
 test_review = test_data[0]
 predict = model.predict([test_review])
 print("Review: ")
 print(decode_review(test_review))
 print("Prediction: " + str(predict[0]))
 print("Actual: " + str(test_labels[0]))
-print(results)
+print(results)'''
