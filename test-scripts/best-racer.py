@@ -16,9 +16,7 @@ def best_items(racers):
 
         # Data quality issues :/ Print a warning about racers with no name set. We'll take care of it later.
         if racer['name'] is None:
-            print("WARNING: Encountered racer with unknown name on iteration {}/{} (racer = {})".format(
-                i+1, len(racers), racer['name'])
-                 )
+            print("WARNING: Encountered racer with unknown name on iteration {}/{} (racer = {})".format( i+1, len(racers), racer['name']) )
     return winner_item_counts
 
 
