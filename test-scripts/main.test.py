@@ -9,4 +9,6 @@ print(rolls + 10)
 xlist = [[1,2,3],[2,4,6],]
 # Create a 2-dimensional array
 x = np.asarray(xlist)
+
 print("xlist = {}\nx = {}\n".format(xlist, x))
+print(f'xlist = {xlist}\nx = {x}')
